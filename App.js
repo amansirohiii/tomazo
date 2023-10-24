@@ -23,19 +23,35 @@ const Navbar = () => {
         </div>
     );
 };
-const ResCard = ({resData}) => {
-    const { name, areaName, avgRating, cloudinaryImageId, costForTwo,sla } = resData?.info;
+const ResCard = ({ resData }) => {
+    const {
+        name,
+        areaName,
+        avgRating,
+        cloudinaryImageId,
+        costForTwo,
+        cuisines,
+        sla,
+    } = resData?.info;
     return (
         <div className="res-cont">
             <div className="res-logo">
-                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} alt="" className="image" />
+                <img
+                    src={
+                        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+                        cloudinaryImageId
+                    }
+                    alt=""
+                    className="image"
+                />
             </div>
             <h3 className="res-name">{name}</h3>
             <div className="res-data">
-                <p className="ratings">{avgRating} </p>
-                <p className="eta">{sla.deliveryTime}</p>
+                <p className="ratings">{avgRating} stars </p>
+                <p className="eta">{sla.deliveryTime} mins</p>
             </div>
-            <p className="price">{costForTwo}</p>
+            <p className="cuisines">{cuisines.join(", ")}</p>
+
             <p className="area-name">{areaName}</p>
         </div>
     );
@@ -51,7 +67,9 @@ const Body = () => {
                 />
             </div>
             <div className="cards-cont">
-                <ResCard resData={resData[0]} />
+                {resData.map((resData) => {
+                    return <ResCard resData={resData} />;
+                })}
             </div>
         </div>
     );

@@ -24,7 +24,7 @@ body {
 .body-cont {
     padding: 0 100px;
 }
-.search{
+.search {
     display: flex;
     justify-content: center;
     margin: 40px 0;
@@ -35,11 +35,15 @@ body {
 }
 .cards-cont {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .res-cont {
     height: 300px;
     width: 300px;
-    margin: 0 10px;
+    margin: 30px 10px;
+    font-size: 15px;
+    cursor: pointer;
     /* background-color: #f0f0f0; */
 }
 
@@ -52,13 +56,22 @@ body {
     height: 200px;
     border-radius: 20px;
 }
-.res-name{
+.res-name {
     margin: 10px 20px 0;
 }
-.res-data{
+.res-data {
     display: flex;
+    justify-content: space-between;
+    font-weight: bold;
 }
-.ratings , .eta{
+.ratings,
+.eta,
+.area-name,
+.cuisines {
     margin: 10px 20px 0;
-    font-weight: 400;
+}
+.cuisines {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
