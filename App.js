@@ -68,7 +68,7 @@ const Body = () => {
             </div>
             <div className="cards-cont">
                 {resData.map((resData) => {
-                    return <ResCard resData={resData} />;
+                    return <ResCard key={resData.info.id} resData={resData} />;
                 })}
             </div>
         </div>
@@ -79,7 +79,6 @@ const App = () => {
         <div className="app-cont">
             <Navbar />
             <Body />
-            {console.log(resData)}
         </div>
     );
 };
