@@ -1,23 +1,13 @@
-import {CDN_URL} from "../utils/constants";
+import { CDN_URL } from "../utils/constants";
 
 export default ResCard = ({ resData }) => {
-    const {
-        name,
-        areaName,
-        avgRating,
-        cloudinaryImageId,
-        costForTwo,
-        cuisines,
-        sla,
-    } = resData?.info;
+    const { name, areaName, avgRating, cloudinaryImageId, cuisines, sla } =
+        resData?.info;
     return (
         <div className="res-cont">
             <div className="res-logo">
                 <img
-                    src={
-                        CDN_URL +
-                        cloudinaryImageId
-                    }
+                    src={CDN_URL + cloudinaryImageId}
                     alt=""
                     className="image"
                 />
