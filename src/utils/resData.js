@@ -1,4 +1,4 @@
-export const resData=[
+export let resData=[
     {
       "info": {
         "id": "441312",

@@ -21,6 +21,7 @@ body {
 .nav-items > ul > li {
     padding: 0 30px;
     font-size: 18px;
+    cursor: pointer;
 }
 .body-cont {
     padding: 0 100px;
@@ -37,11 +38,11 @@ body {
 .cards-cont {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .res-cont {
     /* height: 300px; */
-    width: 300px;
+    width: 320px;
     margin: 30px 10px;
     font-size: 15px;
     cursor: pointer;
@@ -75,4 +76,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.filter-btn{
+    cursor: pointer;
+
 }
