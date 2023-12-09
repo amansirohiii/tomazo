@@ -1,6 +1,6 @@
 import { CDN_URL } from "../utils/constants";
 
-export default ResCard = ({resData}) => {
+const ResCard = ({resData}) => {
   const { name, areaName, avgRating, cloudinaryImageId, cuisines, sla }=resData?.info;
   return (
     <div className="res-cont">
@@ -18,3 +18,4 @@ export default ResCard = ({resData}) => {
     </div>
   );
 };
+export default ResCard;

@@ -2,7 +2,7 @@ import { resData } from "../utils/resData";
 import ResCard from "./ResCard";
 import { useState } from "react";
 
-export default Body = () => {
+const Body = () => {
   const [resFilter, setresFilter] = useState(resData);
   const [rating, setRating] = useState(0);
 
@@ -49,3 +49,4 @@ export default Body = () => {
     </div>
   );
 };
+export default Body;

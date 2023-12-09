@@ -1,6 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
 
-export default Navbar = () => {
+const Navbar = () => {
     return (
         <div className="navbar-cont">
             <div className="logo-cont">
@@ -21,3 +21,4 @@ export default Navbar = () => {
         </div>
     );
 };
+export default Navbar;
