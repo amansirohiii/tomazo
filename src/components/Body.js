@@ -1,11 +1,24 @@
-import { resData } from "../utils/resData";
+// import { resData } from "../utils/resData";
 import ResCard from "./ResCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 const Body = () => {
-  const [resFilter, setresFilter] = useState(resData);
+  const [resFilter, setresFilter] = useState([]);
   const [rating, setRating] = useState(0);
 
+
+  useEffect(()=>{
+    fetchData();
+  },[])
+  const fetchData= async()=>{
+    const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5659013&lng=77.4902726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const dataJson=await data.json();
+    setresFilter(dataJson?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }
+  if(resFilter.length===0){
+    return <h1>Loading...</h1>
+  }
   return (
     <div className="body-cont">
       <div className="search">
