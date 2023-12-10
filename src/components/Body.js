@@ -2,6 +2,7 @@ import { RES_API } from "../utils/constants";
 import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resFilter, setResFilter] = useState([]);
@@ -25,6 +26,7 @@ const Body = () => {
       setOriginalData(restaurants);
       setResFilter(restaurants);
       setLoading(false);
+      // console.log(restaurants);
     } catch (err) {
       console.log(err);
     }
@@ -97,7 +99,7 @@ const Body = () => {
           <Shimmer />
         ) : (
           resFilter.map((res) => {
-            return <ResCard key={res.info.id} resData={res} />;
+            return <Link to={"/restaurants/" +res.info.id} key={res.info.id}><ResCard resData={res} /></Link> ;
           })
         )}
       </div>
