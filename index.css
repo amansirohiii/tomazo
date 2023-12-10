@@ -81,3 +81,16 @@ body {
     cursor: pointer;
 
 }
+.shimmer-cont {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.shimmer-card {
+    height: 300px;
+    width: 320px;
+    margin: 30px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
