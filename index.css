@@ -77,6 +77,10 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.filter{
+    display: flex;
+    justify-content: right;
+}
 .filter-btn{
     cursor: pointer;
 
@@ -97,5 +101,5 @@ body {
 .login{
     padding: 0 20px;
     cursor: pointer;
-    
+
 }

@@ -1,13 +1,14 @@
 import { RES_API } from "../utils/constants";
 import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer"
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [resFilter, setResFilter] = useState([]);
   const [originalData, setOriginalData] = useState([]);
   const [rating, setRating] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -28,7 +29,12 @@ const Body = () => {
       console.log(err);
     }
   };
-
+  const handleSearch=()=>{
+    const searchRes = originalData.filter((data) =>
+              data.info.name.toString().toLowerCase().includes(searchText.toLowerCase()) || data.info.cuisines.toString().toLowerCase().includes(searchText.toLowerCase())
+            );
+            setResFilter(searchRes);
+  }
 
   return (
     <div className="body-cont">
@@ -36,9 +42,25 @@ const Body = () => {
         <input
           className="search-bar"
           type="text"
-          placeholder="Search for Restaurant and Foods"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }} onKeyDown={(e)=>{
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
         />
+        <button
+          className="search-btn"
+          onClick={() => {
+            handleSearch();
+          }}
+        >
+          Search
+        </button>
       </div>
+
       <div className="filter">
         <select
           name="filter"
@@ -71,9 +93,13 @@ const Body = () => {
         </button>
       </div>
       <div className="cards-cont">
-        {loading?<Shimmer/> : resFilter.map((res) => {
-          return <ResCard key={res.info.id} resData={res} />;
-        })}
+        {loading ? (
+          <Shimmer />
+        ) : (
+          resFilter.map((res) => {
+            return <ResCard key={res.info.id} resData={res} />;
+          })
+        )}
       </div>
     </div>
   );
