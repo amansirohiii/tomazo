@@ -3,6 +3,7 @@ import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [resFilter, setResFilter] = useState([]);
@@ -31,13 +32,22 @@ const Body = () => {
       console.log(err);
     }
   };
-  const handleSearch=()=>{
-    const searchRes = originalData.filter((data) =>
-              data.info.name.toString().toLowerCase().includes(searchText.toLowerCase()) || data.info.cuisines.toString().toLowerCase().includes(searchText.toLowerCase())
-            );
-            setResFilter(searchRes);
-  }
-
+  const handleSearch = () => {
+    const searchRes = originalData.filter(
+      (data) =>
+        data.info.name
+          .toString()
+          .toLowerCase()
+          .includes(searchText.toLowerCase()) ||
+        data.info.cuisines
+          .toString()
+          .toLowerCase()
+          .includes(searchText.toLowerCase())
+    );
+    setResFilter(searchRes);
+  };
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) return <h1>Not connected to Internet!!!</h1>;
   return (
     <div className="body-cont">
       <div className="search">
@@ -47,8 +57,9 @@ const Body = () => {
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
-          }} onKeyDown={(e)=>{
-            if (e.key === 'Enter') {
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
               handleSearch();
             }
           }}
@@ -99,7 +110,11 @@ const Body = () => {
           <Shimmer />
         ) : (
           resFilter.map((res) => {
-            return <Link to={"/restaurants/" +res.info.id} key={res.info.id}><ResCard resData={res} /></Link> ;
+            return (
+              <Link to={"/restaurants/" + res.info.id} key={res.info.id}>
+                <ResCard resData={res} />
+              </Link>
+            );
           })
         )}
       </div>
