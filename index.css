@@ -119,3 +119,17 @@ a {
     padding: 0 100px;
 
 }
+.about-us{
+    text-align: center;
+}
+.user-card{
+    border: 0.5px solid black ;
+    border-radius: 1.5rem;
+    padding: 2rem;
+}
+.user-cont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
