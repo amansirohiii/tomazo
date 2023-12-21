@@ -25,7 +25,7 @@ console.log(categories)
         <h1 className="font-bold my-6 text-2xl">{name}</h1>
         <p className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage} </p>
         {categories.map((category)=>(
-            <RestaurantCategory  data={category?.card?.card}/>
+            <RestaurantCategory key={category.card.card.title} data={category?.card?.card}/>
         ))}
 
     </div>
