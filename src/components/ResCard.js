@@ -20,4 +20,17 @@ const ResCard = ({resData}) => {
     </div>
   );
 };
+
+// export const withPromotedLabel=(RestaurantCard)=>{
+//   return(props)=>{
+//     return(
+//       <div>
+//       <label className="absolute">
+//       Promoted
+//       </label>
+//       <RestaurantCard {...props}/>
+//       </div>
+//     );
+//   };
+// };
 export default ResCard;
