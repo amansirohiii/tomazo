@@ -21,7 +21,7 @@ const Body = () => {
       const data = await fetch(RES_API);
       const dataJson = await data.json();
       const restaurants =
-        dataJson?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        dataJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants || [];
 
       setOriginalData(restaurants);
