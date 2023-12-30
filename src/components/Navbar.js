@@ -2,8 +2,11 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+    const items=useSelector((store)=>store.cart.items)
+
   const [login, setLogin] = useState("Login");
   const onlineStatus=useOnlineStatus();
   return (
@@ -26,7 +29,7 @@ const Navbar = () => {
             <Link to="/contact">Contact</Link>
             </li>
             <li className="px-4">
-            <Link to="/">Cart</Link>
+            <Link to="/cart">Cart-{items.length}</Link>
             </li>
           <button
             className="bg-teal-300 px-5 rounded-lg py-1"
