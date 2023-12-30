@@ -11,7 +11,9 @@ const RestaurantMenu = () => {
 
     const resInfo=useRestaurantMenu(resId);
   if (resInfo === null) {
-    return <Shimmer />;
+    return <div className="flex justify-center items-center h-screen">
+    <h1 className="text-4xl font-bold">Loading...</h1>
+  </div>;
   }
   const { id, name, city, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;

@@ -127,7 +127,7 @@ const Body = () => {
         ) : (
           resFilter.map((res) => {
             return (
-              <Link to={"/restaurants/" + res.info.id} key={res.info.id}>
+              <Link to={"/restaurants/" + res.info.id} key={res.info.id} onClick={()=>window.top(0,0)}>
                 <ResCard resData={res} />
               </Link>
             );
