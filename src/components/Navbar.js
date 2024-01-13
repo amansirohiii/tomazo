@@ -10,29 +10,29 @@ const Navbar = () => {
   const [login, setLogin] = useState("Login");
   const onlineStatus=useOnlineStatus();
   return (
-    <div className="flex justify-between px-32 border-b-[1px]">
-      <div className="">
-        <Link to="/"><img src={LOGO_URL} alt="" className="w-24" /></Link>
+    <div className="flex flex-row justify-between sm:px-32 border-b-[1px]">
+      <div className="flex items-center">
+        <Link to="/"><img src={LOGO_URL} alt="" className="w-16 sm:w-24" /></Link>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-between items-center whitespace-nowrap text-sm sm:text-lg">
         <ul className="flex items-center">
-            <li className="px-4">
-                OnlineStatus: {onlineStatus?"🟢":"🔴"}
+            <li className="sm:px-4 px-2">
+                {onlineStatus?"🟢":"🔴"}
             </li>
-          <li className="px-4">
+          <li className="sm:px-4 px-2">
             <Link to="/">Home</Link>
             </li>
-            <li className="px-4">
+            <li className="sm:px-4 px-2">
             <Link to="/about">About Us</Link>
             </li>
-            <li className="px-4">
+            <li className="sm:px-4 px-2">
             <Link to="/contact">Contact</Link>
             </li>
-            <li className="px-4">
-            <Link to="/cart">Cart-{items.length}</Link>
+            <li className="sm:px-4 px-2">
+            <Link to="/cart"><i className="fa-solid fa-cart-shopping mr-1"></i>{items.length}</Link>
             </li>
           <button
-            className="bg-teal-300 px-5 rounded-lg py-1"
+            className="bg-teal-300 px-2 mr-2 sm:px-5 rounded-lg py-1"
             onClick={() => {
               login === "Login" ? setLogin("Logout") : setLogin("Login");
             }}

@@ -21,7 +21,7 @@ const Body = () => {
       const data = await fetch(RES_API);
       const dataJson = await data.json();
       const restaurants =
-        dataJson?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        dataJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants || [];
 
       setOriginalData(restaurants);
@@ -65,8 +65,9 @@ const Body = () => {
     <div className="body-cont">
       <div className="m-10 flex justify-center">
         <input
-          className="mx-10 border border-solid border-black w-1/5"
+          className="pl-2 mx-4 sm:mx-10 border border-solid border-black w-4/5 sm:w-1/5"
           type="text"
+          placeholder="Search Restaurants..."
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -87,7 +88,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="my-10 px-32 flex justify-end">
+      <div className="my-10 pr-10 sm:px-32 flex justify-end">
         <select
           name="filter"
           className="bg-gray-50 border border-gray-300 rounded-lg w-24 py-2 text-center"
@@ -97,7 +98,6 @@ const Body = () => {
           }}
         >
           <option value="0">Filter</option>
-          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -121,7 +121,7 @@ const Body = () => {
           Filter
         </button> */}
       </div>
-      <div className="px-10 flex flex-wrap">
+      <div className="sm:px-10 flex flex-wrap justify-center">
         {loading ? (
           <Shimmer />
         ) : (

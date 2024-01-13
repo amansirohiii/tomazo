@@ -25,9 +25,11 @@ const RestaurantMenu = () => {
     );
 console.log(categories)
   return (
-    <div className="text-center">
-        <h1 className="font-bold my-6 text-2xl">{name}</h1>
+    <div className="text-center ">
+        <div className="bg-black text-white p-6">
+        <h1 className="font-bold mb-6 text-2xl">{name}</h1>
         <p className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage} </p>
+        </div>
         {categories.map((category, index)=>(
             <RestaurantCategory key={category.card.card.title} data={category?.card?.card}
             showItems={index===showIndex?true:false}

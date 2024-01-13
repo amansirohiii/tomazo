@@ -24,9 +24,9 @@ const ItemList=({items})=>{
                 </p>
 
                 </div>
-                <div className="w-3/12 p-4 relative">
+                <div className="w-6/12 sm:w-3/12 p-4 relative">
                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-                        <button className="p-2 bg-black text-white shadow-lg rounded-lg " onClick={()=>handleAddItem(item)}>Add +</button>
+                        <button className="text-xs sm:text-sm p-2 bg-black text-white shadow-lg rounded-lg whitespace-nowrap" onClick={()=>handleAddItem(item)}>Add +</button>
                     </div>
                     <img src={item.card.info.imageId?CDN_URL+item.card.info.imageId:null} alt="" className="rounded-lg"/>
                 </div>
