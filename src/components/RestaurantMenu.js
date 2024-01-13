@@ -7,7 +7,7 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [showIndex, setShowIndex]=useState();
-  console.log(useParams());
+//   console.log(useParams());
 
     const resInfo=useRestaurantMenu(resId);
   if (resInfo === null) {
