@@ -1,7 +1,7 @@
 const Shimmer = () => {
   const length = 9;
   return (
-    <div className="sm:px-10 flex flex-wrap justify-center">
+    <div className=" flex flex-wrap sm:justify-evenly justify-center">
       {Array.from({ length: 9 }).map((_, index) => (
         <div key={index}>
           <div className="w-[21rem] h-56 mx-5 my-3 bg-gray-200 relative overflow-hidden rounded-lg">

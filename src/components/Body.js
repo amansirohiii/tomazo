@@ -121,7 +121,7 @@ const Body = () => {
           Filter
         </button> */}
       </div>
-      <div className="sm:px-10 flex flex-wrap justify-center">
+      <div className="sm:px-10 flex flex-wrap justify-center sm:justify-evenly">
         {loading ? (
           <Shimmer />
         ) : (
