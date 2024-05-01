@@ -15,15 +15,16 @@ const RestaurantMenu = () => {
     <h1 className="text-4xl font-bold">Loading...</h1>
   </div>;
   }
+  // console.log(resInfo)
   const { id, name, city, cuisines, costForTwoMessage } =
-    resInfo?.cards[0]?.card?.card?.info;
+    resInfo?.cards[2]?.card?.card?.info;
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
-    const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (c)=>c.card?.card?.["@type"]=== 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
     );
-console.log(categories)
+// console.log(categories)
   return (
     <div className="text-center ">
         <div className="bg-black text-white p-6">
